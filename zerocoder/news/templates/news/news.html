@@ -1,0 +1,35 @@
+
+{% extends 'main/layout.html' %}
+
+{% block title %}
+    <title>Новостная страница</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Новостная страница</h1>
+
+    <h2>Авторские новости:</h2>
+    {% for new in news_HW %}
+        <br>
+        <div>
+            <h4><u><i>Автор</i>:</u> &nbsp;&nbsp;<b>{{ new.user_name }}</b></h4>
+            <h3><u><i>Название</i>:</u> &nbsp;&nbsp;<b>{{ new.title }}</b></h3>
+            <h6><u><i>Краткое содержание</i>:</u> &nbsp;&nbsp;<b>{{ new.short_description }}</b></h6>
+            <p> {{ new.text }} </p>
+            <h6><i>Дата создания</i>: &nbsp;&nbsp;<b>{{ new.pub_data }}</b></h6>
+        </div>
+       <br>
+    {% endfor %}
+
+    <br><br><br>
+    <p>Сделано на занятии:</p>
+
+    <h2>Анонимные новости:</h2>
+    {% for new in news %}
+        <div>
+            <h3>{{ new.title }}</h3>
+            <p> {{ new.short_description }} </p>
+        </div>
+        <br>
+    {% endfor %}
+{% endblock %}
